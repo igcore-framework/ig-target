@@ -24,7 +24,7 @@ Config.MaxDistance = 7.0
 Config.Debug = false
 
 -- Supported values: true, false
-Config.Standalone = false
+Config.Standalone = true
 
 -- Enable outlines around the entity you're looking at
 Config.EnableOutline = false
@@ -42,7 +42,7 @@ Config.DrawDistance = 10.0
 Config.DrawColor = { 255, 255, 255, 255 }
 
 -- The color of the sprite in rgb when the PolyZone is targeted, the first value is red, the second value is green, the third value is blue and the last value is alpha (opacity). Here is a link to a color picker to get these values: https://htmlcolorcodes.com/color-picker/
-Config.SuccessDrawColor = { 220, 20, 60, 255 }
+Config.SuccessDrawColor = { 66, 165, 245, 255 }
 
 -- The color of the outline in rgb, the first value is red, the second value is green, the third value is blue and the last value is alpha (opacity). Here is a link to a color picker to get these values: https://htmlcolorcodes.com/color-picker/
 Config.OutlineColor = { 255, 255, 255, 255 }
@@ -60,7 +60,7 @@ Config.OpenKey = 'LMENU' -- Left Alt
 Config.MenuControlKey = 238
 
 -- Whether to disable ALL controls or only specificed ones
-Config.DisableControls = true
+Config.DisableControls = false
 
 -------------------------------------------------------------------------------
 -- Target Configs

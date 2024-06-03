@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const config = {
         StandardEyeIcon: "fas fa-eye",
         StandardColor: "white",
-        SuccessColor: "#DC143C",
+        SuccessColor: "#42A5F5",
     };
 
     const targetEye = document.getElementById("target-eye");
