@@ -8,6 +8,8 @@ version '5.5.0'
 
 ui_page 'html/index.html'
 
+shared_script '@pmc-callbacks/import.lua'
+
 client_scripts {
 	'@PolyZone/client.lua',
 	'@PolyZone/BoxZone.lua',

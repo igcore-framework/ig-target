@@ -64,6 +64,34 @@ if Config.EnableDefaultOptions then
             end,
             distance = 1.2
         },
+        --[[['Lockpick'] = {
+            icon = 'fas fa-key',
+            label = 'Lockpick Vehicle',
+            canInteract = function(entity)
+                if GetEntityBoneIndexByName(entity, 'door_dside_f') ~= -1 then
+                    local lockpickItem = exports.ox_inventory:GetItemCount("lockpick")
+                    if (lockpickItem) and (lockpickItem ~= 0) then
+
+                        local result = TriggerServerCallback {
+                            eventName = 'ig-core:sv:isPlayerOwned',
+                            args = {entity}
+                        }
+
+                        if result then return false end
+                        return true
+                    else
+                        return false
+                    end
+                else
+                    return false
+                end
+
+            end,
+            action = function(entity)
+                TriggerEvent('ig-vehicles:cl:Lockpick', entity)
+            end,
+            distance = 1.2
+        },]]
     }
 
     Bones.Options['seat_pside_f'] = {
@@ -120,14 +148,31 @@ if Config.EnableDefaultOptions then
     }
 
     Bones.Options['boot'] = {
-        ['Toggle Trunk'] = {
+        ['Open Trunk'] = {
             icon = 'fas fa-truck-ramp-box',
+            label = 'Open Trunk',
+            action = function(entity)
+                local plate = GetVehicleNumberPlateText(entity)
+                local invId = 'trunk'..plate
+                local coords = GetEntityCoords(entity)
+                TaskTurnPedToFaceCoord(PlayerPedId(), coords.x, coords.y, coords.z, 0)
+
+                local door = BackEngineVehicles[GetEntityModel(entity)] and 4 or 5
+
+                exports.ox_inventory:openInventory('trunk', { id = invId, netid = NetworkGetNetworkIdFromEntity(entity), entityid = entity, door = door })
+
+                SetVehicleDoorOpen(entity, door)
+            end,
+            distance = 0.9
+        },
+        ['Toggle Trunk'] = {
+            icon = 'fas fa-door-open',
             label = 'Toggle Trunk',
             action = function(entity)
                 ToggleDoor(entity, BackEngineVehicles[GetEntityModel(entity)] and 4 or 5)
             end,
             distance = 0.9
-        }
+        },
     }
 end
 
