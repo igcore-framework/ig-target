@@ -8,8 +8,8 @@ body {
     left: 50%;
     display: none;
     transform: translateY(-50%) translateX(-50%);
-    font-size: 1vh;
-    text-shadow: 2px 2px 5px #42a5f5;
+    font-size: .5vh;
+    text-shadow: 2px 2px 5px #000000;
 }
 
 #target-label-wrapper {
