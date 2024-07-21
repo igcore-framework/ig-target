@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const config = {
-        StandardEyeIcon: "fas fa-eye",
+        StandardEyeIcon: "fas fa-circle",
         StandardColor: "white",
         SuccessColor: "#42A5F5",
     };
