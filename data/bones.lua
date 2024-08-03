@@ -148,23 +148,6 @@ if Config.EnableDefaultOptions then
     }
 
     Bones.Options['boot'] = {
-        ['Open Trunk'] = {
-            icon = 'fas fa-truck-ramp-box',
-            label = 'Open Trunk',
-            action = function(entity)
-                local plate = GetVehicleNumberPlateText(entity)
-                local invId = 'trunk'..plate
-                local coords = GetEntityCoords(entity)
-                TaskTurnPedToFaceCoord(PlayerPedId(), coords.x, coords.y, coords.z, 0)
-
-                local door = BackEngineVehicles[GetEntityModel(entity)] and 4 or 5
-
-                exports.ox_inventory:openInventory('trunk', { id = invId, netid = NetworkGetNetworkIdFromEntity(entity), entityid = entity, door = door })
-
-                SetVehicleDoorOpen(entity, door)
-            end,
-            distance = 0.9
-        },
         ['Toggle Trunk'] = {
             icon = 'fas fa-door-open',
             label = 'Toggle Trunk',

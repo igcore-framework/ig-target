@@ -34,3 +34,6 @@ body {
     white-space: nowrap;
     text-shadow: 0.2vh 0.2vh 0.2vh #000000;
 }
+#target-label:hover {
+    cursor: pointer;
+}
